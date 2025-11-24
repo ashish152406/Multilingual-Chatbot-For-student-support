@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Campus Sahayak – Multilingual Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-block">
+        <div class="logo-circle">CS</div>
+        <div>
+          <h1>Campus Sahayak 🤖</h1>
+          <p class="tagline"> Feel Free To Ask! </p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="status-pill" id="statusPill">
+          <span class="status-dot"></span>
+          <span>Backend: connected</span>
+        </div>
+        <button id="themeToggleBtn" class="icon-btn" title="Toggle theme">🌙</button>
+        <div class="header-actions">
+          <button id="chatTabBtn" class="tab-btn active">💬 Chat</button>
+          <button id="adminTabBtn" class="tab-btn">🛠️ Admin</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Chat Section -->
+    <main id="chatSection" class="main-section">
+      <div class="chat-card">
+        <div class="chat-topbar">
+          <div class="mode-pill">Auto language detection · FAQ + ML</div>
+          <button id="clearChatBtn" class="clear-btn">🧹 Clear</button>
+        </div>
+
+        <div id="chatBox" class="chat-box">
+          <!-- Filled by JS (with history or welcome msg) -->
+        </div>
+
+        <div class="suggestions-row">
+          <span class="suggestions-label">Quick questions:</span>
+          <button class="suggestion-btn" data-text="What is the last date to submit exam form?">
+            Exam form date
+          </button>
+          <button class="suggestion-btn" data-text="What are the library timings?">
+            Library timing
+          </button>
+          <button class="suggestion-btn" data-text="How to apply for scholarship?">
+            Scholarship apply
+          </button>
+          <button class="suggestion-btn" data-text="When are semester exams?">
+            Exam dates
+          </button>
+        </div>
+
+        <form id="chatForm" class="chat-input-row">
+          <input
+            id="chatInput"
+            type="text"
+            placeholder="Type your question in any language..."
+            autocomplete="off"
+          />
+          <button type="button" id="micBtn" class="icon-btn" title="Speak">🎙️</button>
+          <button type="submit">Send ➤</button>
+        </form>
+
+        <div id="dynamicSuggestions" class="dynamic-suggestions hidden"></div>
+
+        <div id="typingIndicator" class="typing-indicator hidden">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="typing-text">Sahayak is typing…</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Admin Section -->
+    <main id="adminSection" class="main-section hidden">
+      <div class="admin-card">
+        <div class="admin-header-row">
+          <div>
+            <h2>Admin Portal</h2>
+            <p class="admin-note">
+              Add and manage FAQs to continuously improve chatbot responses.
+            </p>
+          </div>
+          <div class="mini-pill">Login required</div>
+        </div>
+
+        <div class="admin-stats">
+          <div class="stat-card">
+            <div class="stat-label">Total FAQs</div>
+            <div class="stat-value" id="statTotalFaqs">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">English (en)</div>
+            <div class="stat-value" id="statEn">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Hindi (hi)</div>
+            <div class="stat-value" id="statHi">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Marathi (mr)</div>
+            <div class="stat-value" id="statMr">0</div>
+          </div>
+        </div>
+
+        <form id="adminLoginForm" class="admin-token-row">
+          <input
+            id="adminUsernameInput"
+            type="text"
+            placeholder="Admin username"
+            required
+          />
+          <input
+            id="adminPasswordInput"
+            type="password"
+            placeholder="Admin password"
+            required
+          />
+          <button type="submit" id="loginBtn">Login</button>
+          <button type="button" id="logoutBtn" class="secondary-btn hidden">Logout</button>
+        </form>
+        <p id="adminLoginStatus" class="admin-login-status">Not logged in</p>
+
+        <form id="faqForm" class="faq-form">
+          <input id="faqQuestion" type="text" placeholder="FAQ Question" required />
+          <textarea id="faqAnswer" placeholder="FAQ Answer" required></textarea>
+          <div class="faq-row">
+            <input id="faqLanguage" type="text" placeholder="Language code (e.g. en, hi, mr)" required />
+            <input id="faqTags" type="text" placeholder="Tags (comma-separated, optional)" />
+          </div>
+          <button type="submit">Add FAQ</button>
+        </form>
+
+        <div class="faq-list">
+          <div class="faq-list-header">
+            <h3>Existing FAQs</h3>
+            <input
+              id="faqSearchInput"
+              type="text"
+              placeholder="Search by question or tags..."
+            />
+          </div>
+
+          <table id="faqTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Question</th>
+                <th>Language</th>
+                <th>Tags</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Filled dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="complaint-card">
+          <div class="complaint-header">
+            <h3> any Complaints / Queries </h3>
+           
+          </div>
+
+          <form id="complaintForm" class="complaint-form">
+            <input id="complaintName" type="text" placeholder="Your name" required />
+            <input id="complaintEmail" type="email" placeholder="Your email (optional)" />
+            <textarea id="complaintMessage" placeholder="Write your complaint or query..." required></textarea>
+            <button type="submit">Submit Complaint</button>
+          </form>
+
+          <div class="complaint-list">
+            <h4>Submitted complaints (local)</h4>
+            <ul id="complaintList">
+              <!-- Filled by JS -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+text,intent
+hi,greeting
+hello,greeting
+hey,greeting
+good morning,greeting
+good evening,greeting
+namaste,greeting
+नमस्ते,greeting
+हेलो,greeting
+नमस्कार,greeting
+शुभ प्रभात,greeting
+
+thanks,thankyou
+thank you,thankyou
+thank u,thankyou
+dhanyawaad,thankyou
+धन्यवाद,thankyou
+shukriya,thankyou
+
+bye,goodbye
+goodbye,goodbye
+see you,goodbye
+बाय,goodbye
+चलते हैं,goodbye
+
+when is exam form last date,exam_form_date
+exam form date please,exam_form_date
+last date for exam form,exam_form_date
+exam form kab bhare,exam_form_date
+exam form ki last date kya hai,exam_form_date
+एग्जाम फॉर्म की आखिरी तारीख क्या है,exam_form_date
+एक्झाम फॉर्मची शेवटची तारीख,mr_exam_form_date
+एक्झाम फॉर्म कधी भरायचा,exam_form_date
+
+what is the library timing,library_timing
+library timing please,library_timing
+library open or not,library_timing
+library kab khulti hai,library_timing
+लाइब्रेरी का टाइम क्या है,library_timing
+लायब्ररी कधी उघडते,mr_library_timing
+library open time,library_timing
+library close time,library_timing
+
+fees details,fees
+how to pay fees,fees
+fees kab deni hai,fees
+fee payment last date,fees
+फीस कैसे भरें,fees
+फीस कब जमा करनी है,fees
+फी कधी भरायची,mr_fees
+फीसची माहिती द्या,fees
+
+scholarship details,scholarship
+how to apply scholarship,scholarship
+scholarship process,scholarship
+scholarship kab milti hai,scholarship
+स्कॉलरशिप की जानकारी दें,scholarship
+शिष्यवृत्तीची माहिती द्या,scholarship
+scholarship last date,scholarship
+
+when are exams,exam_dates
+exam dates please,exam_dates
+exam kab hai,exam_dates
+परीक्षा कधी आहे,exam_dates
+एग्जाम डेट बताओ,exam_dates
+exam schedule,exam_dates
+
+college address,info
+college map,info
+college location,info
+कॉलेज का पता,info
+कॉलेज कुठे आहे,info
+
+wifi access,wifi
+how to connect wifi,wifi
+wifi password,wifi
+वाईफाई का पासवर्ड,wifi
+
+computer lab location,lab
+computer lab timing,lab
+lab open time,lab
+लॅब कुठे आहे,lab
+
+hostel rules,hostel
+hostel timing,hostel
+mess timing,mess
+मेस टाइमिंग,mess
+
+bus timing,bus
+bus route,bus
+बस टाइमिंग,bus
+बस रूट,bus
+
+admission process,admission
+admission fees,admission
+admission last date,admission
+एडमिशन कब है,admission
+
+placement cell info,placement
+placement details,placement
+placement office location,placement
+
+faculty list,faculty
+teachers list,faculty
+फैकल्टी लिस्ट,faculty
+फॅकल्टी माहिती,faculty
+
+contact number,contact
+office phone,contact
+कॉलेज का नंबर,contact
+
+syllabus info,syllabus
+syllabus download,syllabus
+सिलेबस भेजो,syllabus
+
+attendance rules,attendance
+minimum attendance,attendance
+75 percent rule,attendance
+अटेंडन्स कितनी चाहिए,attendance
+
+canteen timing,canteen
+food menu,canteen
+कँटीन टाइमिंग,canteen
+कँटीन मेन्यू,canteen
+
+other,other
+random question xyz,other
+i need help,other
